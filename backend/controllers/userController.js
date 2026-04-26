@@ -31,7 +31,18 @@ const getUser = async (req, res) => {
 
 // Log-in user.
 const logInUser = async (req, res) => {
-  res.json({ msg: 'Log-in user' });
+  const { email, name, departmentId, password } = req.body;
+
+  try {
+    const user = await User.logIn(email, name, departmentId, password);
+
+    // Create token.
+    const token = createToken(user._id);
+
+    res.status(200).json({ email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 }
 
 // Sign-up user.
