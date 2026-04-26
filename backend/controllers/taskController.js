@@ -28,6 +28,21 @@ const getTask = async (req, res) => {
 const createTask = async (req, res) => {
   const { title, departmentId, userId } = req.body;
 
+  // Store fields array to display empty errors.
+  const fields = { title, departmentId, userId };
+  let emptyFields = [];
+
+  Object.entries(fields).forEach(([key, value]) => {
+    if (!value) emptyFields.push(key);
+  });
+
+  if (emptyFields.length > 0) {
+    return res.status(400).json({
+      error: 'Please fill in all the fields',
+      emptyFields
+    });
+  }
+
   // Add document to database.
   try {
     const task = await Task.create({ title, departmentId, userId });
