@@ -1,0 +1,16 @@
+@use '../variables' as v;
+
+.navbar {
+  background-color: v.$colorNeutral-100;
+  padding: 20px 70px;
+
+  &__logo {
+    font-size: v.$fontLarge;
+    font-weight: 700;
+    color: v.$colorNeutral-900;
+
+    span {
+      color: v.$colorPrimary;
+    }
+  }
+}
