@@ -1,9 +1,4 @@
-:root {
-  --font-primary: 'Rubik', Arial, sans-serif;
-
-  --color-primary: #1aac83;
-  --color-error: #e7195a;
-}
+@use 'variables' as v;
 
 html,
 body,
@@ -129,7 +124,7 @@ body {
 
 body,
 textarea {
-  font-family: var(--font-primary);
+  font-family: v.$fontPrimary;
 }
 
 div:empty:not(.visible) {
@@ -164,5 +159,5 @@ button,
 textarea,
 input,
 select {
-  font-family: var(--font-primary);
+  font-family: v.$fontPrimary;
 }
