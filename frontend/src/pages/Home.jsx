@@ -37,7 +37,7 @@ function Home() {
       <section className='page--home__section page--home__section--content'>
         <section className='container-holder'>
           <h2>Active Tasks</h2>
-          <div className='container visible'>
+          <div className='container container--tasks visible'>
             {
               tasks &&
               tasks.map(task =>
