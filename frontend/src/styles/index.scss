@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as mix;
 
 html,
 body,
@@ -160,4 +161,24 @@ textarea,
 input,
 select {
   font-family: v.$fontPrimary;
+  font-size: v.$fontSmall !important;
+}
+
+input,
+select {
+  @include mix.input;
+}
+
+.input-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    color: v.$colorNeutral-500;
+  }
+}
+
+button {
+  @include mix.button;
 }

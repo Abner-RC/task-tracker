@@ -2,10 +2,21 @@ $fontPrimary: 'Rubik', Arial, sans-serif;
 
 $fontLarge: 32px;
 $fontMedium: 24px;
+$fontMSmall: 18px;
 $fontSmall: 14px;
 
 $colorPrimary: #1aac83;
+$colorPrimary-dark: #158f6c;
 $colorError: #e7195a;
 $colorNeutral-100: #FFFFFF;
 $colorNeutral-200: #F1F1F1;
+$colorNeutral-300: #d8d8d8;
+$colorNeutral-500: #757575;
 $colorNeutral-900: #363636;
+
+$borderRadius-md: 10px;
+$borderRadius-sm: 7px;
+
+$boderLight: 1px solid $colorNeutral-300;
+
+$durationShort: 0.1s;

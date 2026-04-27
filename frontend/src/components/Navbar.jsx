@@ -7,6 +7,13 @@ function Navbar() {
       <NavLink to='/' className='navbar__logo'>
         <h1>Task <span>Tracker</span></h1>
       </NavLink>
+      <nav>
+        <div>
+          <NavLink to='/sign-up' className='navbar__item'>
+            Sign Up
+          </NavLink>
+        </div>
+      </nav>
     </header>
   )
 }

@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as mix;
 
 body {
   background-color: v.$colorNeutral-200;
@@ -7,5 +8,42 @@ body {
 .page {
   margin: 50px 70px;
 
-  &--home {}
+  &--sign-up {
+    .container {
+      margin-inline: auto;
+      max-width: 700px;
+    }
+  }
+
+  &__title {
+    font-size: v.$fontMedium;
+    font-weight: 600;
+    color: v.$colorPrimary;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: end;
+
+    span {
+      color: v.$colorNeutral-500;
+      font-size: v.$fontMSmall !important;
+      font-weight: 400;
+    }
+  }
+}
+
+.container {
+  @include mix.container;
+}
+
+.form {
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    margin-left: auto;
+  }
 }

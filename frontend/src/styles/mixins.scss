@@ -1,1 +1,36 @@
 @use 'variables' as v;
+
+@mixin container {
+  padding: 50px;
+  border-radius: v.$borderRadius-md;
+  background-color: v.$colorNeutral-100;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@mixin input {
+  border-radius: v.$borderRadius-sm;
+  border: v.$boderLight;
+  padding: 10px 10px;
+
+  &:focus {
+    outline-color: v.$colorPrimary;
+  }
+}
+
+@mixin button {
+  border-radius: v.$borderRadius-sm;
+  padding: 15px 20px;
+  background-color: v.$colorPrimary;
+  color: v.$colorNeutral-100;
+  border: none;
+  width: max-content;
+  transition: background-color v.$durationShort;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: v.$colorPrimary-dark;
+  }
+}
