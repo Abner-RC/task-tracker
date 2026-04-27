@@ -12,6 +12,9 @@ function Navbar() {
           <NavLink to='/sign-up' className='navbar__item'>
             Sign Up
           </NavLink>
+          <NavLink to='/Log-In' className='navbar__item'>
+            Log In
+          </NavLink>
         </div>
       </nav>
     </header>

@@ -1,23 +1,21 @@
 import { useState } from 'react';
 import '../styles/pages.scss'
 
-function SignUp() {
+function LogIn() {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [department, setDepartment] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, name, department, password);
+    console.log(email, password);
   }
 
   return (
-    <main className='page page--sign-up'>
+    <main className='page page--log-in'>
       <form className="form container" onSubmit={handleSubmit} autoComplete='off'>
         <h1 className='page__title'>
-          Sign Up |<span>Create a new Task Tracker user</span>
+          Log In |<span>Get access with your user credentials</span>
         </h1>
         <div className='form__inputs'>
           <div className='input-holder'>
@@ -27,26 +25,6 @@ function SignUp() {
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
-              spellCheck='false'
-            />
-          </div>
-          <div className='input-holder'>
-            <label htmlFor='name'>Name</label>
-            <input
-              id='name'
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-              spellCheck='false'
-            />
-          </div>
-          <div className='input-holder'>
-            <label htmlFor='department'>Department</label>
-            <select
-              id='department'
-              type="text"
-              onChange={(e) => setDepartment(e.target.value)}
-              value={department}
               spellCheck='false'
             />
           </div>
@@ -62,7 +40,7 @@ function SignUp() {
           </div>
         </div>
         <button type="submit">
-          Sign Up
+          Log In
           <svg xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="icon--sm">
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
           </svg>
@@ -72,4 +50,4 @@ function SignUp() {
   )
 }
 
-export default SignUp;
+export default LogIn;

@@ -182,3 +182,12 @@ select {
 button {
   @include mix.button;
 }
+
+.icon {
+  &--sm {
+    max-width: 20px;
+    min-width: 20px;
+    max-height: 20px;
+    min-height: 20px;
+  }
+}

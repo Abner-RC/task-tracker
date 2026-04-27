@@ -28,6 +28,10 @@
   width: max-content;
   transition: background-color v.$durationShort;
   letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
   cursor: pointer;
 
   &:hover {
