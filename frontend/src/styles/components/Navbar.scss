@@ -3,14 +3,49 @@
 .navbar {
   background-color: v.$colorNeutral-100;
   padding: 20px 70px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
 
   &__logo {
-    font-size: v.$fontLarge;
-    font-weight: 700;
+    font-size: v.$fontMedium !important;
+    font-weight: 600;
     color: v.$colorNeutral-900;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+
+    img {
+      width: 55px;
+      height: 50px;
+    }
 
     span {
+      font-size: inherit !important;
       color: v.$colorPrimary;
+      font-weight: 600;
+    }
+  }
+
+  .navigation {
+    &__container {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+
+      a {
+        &.active {
+          // color: v.$colorNeutral-500;
+          text-decoration: underline;
+        }
+
+        &:not(.active):hover {
+          color: v.$colorPrimary;
+        }
+      }
     }
   }
 }
