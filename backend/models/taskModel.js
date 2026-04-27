@@ -12,7 +12,6 @@ const taskSchema = new Schema({
   },
   userId: {
     type: String,
-    required: true,
   },
 }, { timestamps: true });
 

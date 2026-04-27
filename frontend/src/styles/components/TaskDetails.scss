@@ -1,0 +1,38 @@
+@use '../variables' as v;
+
+.task-details {
+  border-radius: v.$borderRadius-sm;
+  border: v.$boderLight;
+  padding: 15px;
+  width: max-content;
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    color: v.$colorPrimary;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    font-size: v.$fontMSmall;
+  }
+
+  &__assigned {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  p {
+    font-weight: 100;
+
+    &.date {
+      color: v.$colorNeutral-500;
+      text-align: right;
+    }
+  }
+}
