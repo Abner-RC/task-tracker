@@ -1,6 +1,8 @@
 @use '../variables' as v;
 
 .navbar {
+  position: sticky;
+  top: 0;
   background-color: v.$colorNeutral-100;
   padding: 20px 70px;
   display: flex;
