@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useTaskContext } from '../hooks/useTaskContext';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import '../styles/components/TaskDetails.scss'
 
 function TaskDetails({ task }) {
@@ -40,7 +41,12 @@ function TaskDetails({ task }) {
         <p>User: <strong>{assignedUser.name}</strong></p>
         <p>Department: <strong>{assignedDepartment.title}</strong></p>
       </div>
-      <p className='date'>-</p>
+      <p className='date'>
+        {formatDistanceToNow(
+          new Date(task.createdAt),
+          { addSuffix: true }
+        )}
+      </p>
     </div>
   )
 }
