@@ -1,0 +1,67 @@
+@use '../variables' as v;
+
+.user-details {
+  border-radius: v.$borderRadius-sm;
+  border: v.$boderLight;
+  padding: 15px;
+  width: max-content;
+  max-width: 270px;
+  min-width: 270px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    color: v.$colorNeutral-900;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    font-size: v.$fontMSmall;
+  }
+
+  &__assigned {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__profile {
+    max-width: 50px;
+    min-width: 50px;
+    max-height: 50px;
+    min-height: 50px;
+
+    &--human-resources {
+      color: v.$colorHumandResources;
+    }
+
+    &--accounting {
+      color: v.$colorAccounting;
+    }
+
+    &--marketing {
+      color: v.$colorMarketing;
+    }
+
+    &--sales {
+      color: v.$colorSales;
+    }
+
+    &--it-department {
+      color: v.$colorIT;
+    }
+  }
+
+  p {
+    font-weight: 100;
+
+    &.date {
+      color: v.$colorNeutral-500;
+      text-align: right;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import '../styles/pages.scss'
 import TaskDetails from '../components/TaskDetails';
 import CreateTaskForm from '../components/CreateTaskForm';
+import UserDetails from '../components/UserDetails';
 
 function Home() {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -11,7 +12,17 @@ function Home() {
   const { tasks, dispatch } = useTaskContext();
   const { user } = useAuthContext();
 
+  const [users, setUsers] = useState(null);
+
   useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await fetch(`${apiUrl}/user`);
+      const json = await response.json();
+
+      if (response.ok) {
+        setUsers(json);
+      }
+    }
     const fetchTasks = async () => {
       const response = await fetch(`${apiUrl}/tasks`, {
         headers: {
@@ -27,6 +38,8 @@ function Home() {
         });
       }
     }
+    fetchUsers();
+
     if (user) {
       fetchTasks();
     }
@@ -48,8 +61,13 @@ function Home() {
         </section>
         <section className='container-holder'>
           <h2>Users Created</h2>
-          <div className='container'>
-            -
+          <div className='container container--users visible'>
+            {
+              users &&
+              users.map(user =>
+                <UserDetails key={user._id} userData={user} />
+              )
+            }
           </div>
         </section>
       </section>
