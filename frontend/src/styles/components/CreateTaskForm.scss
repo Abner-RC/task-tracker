@@ -1,0 +1,26 @@
+@use '../variables' as v;
+
+.form {
+  &--create {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    color: v.$colorPrimary;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    font-size: v.$fontMSmall;
+  }
+
+  .input {
+    &.input--error {
+      outline: 2px solid v.$colorError-500;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { useTaskContext } from '../hooks/useTaskContext'
 import { useAuthContext } from '../hooks/useAuthContext';
 import '../styles/pages.scss'
 import TaskDetails from '../components/TaskDetails';
+import CreateTaskForm from '../components/CreateTaskForm';
 
 function Home() {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -56,7 +57,7 @@ function Home() {
         <section className='container-holder'>
           <h2>Create a task</h2>
           <div className='container'>
-            -
+            <CreateTaskForm />
           </div>
         </section>
       </section>
