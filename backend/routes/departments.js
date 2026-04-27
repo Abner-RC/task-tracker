@@ -1,9 +1,15 @@
 const express = require('express');
+const {
+  getDepartments,
+  getDepartment,
+  createDepartment,
+  deleteDepartment,
+} = require('../controllers/departmentController');
 const router = express.Router();
 
-router.get('/', (req, res) => { });
-router.get('/:id', (req, res) => { });
-router.post('/', (req, res) => { });
-router.delete('/:id', (req, res) => { });
+router.get('/', getDepartments);
+router.get('/:id', getDepartment);
+router.post('/', createDepartment);
+router.delete('/:id', deleteDepartment);
 
 module.exports = router;
