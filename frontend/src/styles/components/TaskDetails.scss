@@ -1,6 +1,7 @@
 @use '../variables' as v;
 
 .task-details {
+  position: relative;
   border-radius: v.$borderRadius-sm;
   border: v.$boderLight;
   padding: 15px;
@@ -26,6 +27,26 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  &__delete-button {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    max-width: 30px;
+    min-width: 30px;
+    max-height: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    bottom: -10px;
+    left: 10px;
+
+    &__icon {
+      max-width: 20px;
+      min-width: 20px;
+      max-height: 20px;
+      min-height: 20px;
+    }
   }
 
   p {
