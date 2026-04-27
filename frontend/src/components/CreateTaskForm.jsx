@@ -76,62 +76,64 @@ function CreateTaskForm({ task }) {
 
   return (
     <form className="form form--create" onSubmit={handleSubmit}>
-      <h1>Add a new Task</h1>
-      <div className='form__inputs'>
-        <div className='input-holder'>
-          <label htmlFor='title'>Title</label>
-          <input
-            id='title'
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            spellCheck='false'
-            className={`input ${emptyFields.includes('title') ? 'input--error' : ''}`}
-          />
+      <div className='form--create__container'>
+        <h1>Add a new Task</h1>
+        <div className='form__inputs'>
+          <div className='input-holder'>
+            <label htmlFor='title'>Title</label>
+            <input
+              id='title'
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              spellCheck='false'
+              className={`input ${emptyFields.includes('title') ? 'input--error' : ''}`}
+            />
+          </div>
+          <div className='input-holder'>
+            <label htmlFor='user'>User</label>
+            <select
+              id='user'
+              onChange={(e) => setAssignedUser(e.target.value)}
+              value={assignedUser}
+              disabled={!users}
+              className={`input ${emptyFields.includes('userId') ? 'input--error' : ''}`}
+            >
+              <option value='' disabled hidden>Select a User</option>
+              {
+                users &&
+                users.map(u =>
+                  <option key={u._id} value={u._id}>{u.name}</option>
+                )
+              }
+            </select>
+          </div>
+          <div className='input-holder'>
+            <label htmlFor='department'>Department</label>
+            <select
+              id='department'
+              onChange={(e) => setAssignedDepartment(e.target.value)}
+              value={assignedDepartment}
+              disabled={!departments}
+              className={`input ${emptyFields.includes('departmentId') ? 'input--error' : ''}`}
+            >
+              <option value='' disabled hidden>Select a Department</option>
+              {
+                departments &&
+                departments.map(dep =>
+                  <option key={dep._id} value={dep._id}>{dep.title}</option>
+                )
+              }
+            </select>
+          </div>
         </div>
-        <div className='input-holder'>
-          <label htmlFor='user'>User</label>
-          <select
-            id='user'
-            onChange={(e) => setAssignedUser(e.target.value)}
-            value={assignedUser}
-            disabled={!users}
-            className={`input ${emptyFields.includes('userId') ? 'input--error' : ''}`}
-          >
-            <option value='' disabled hidden>Select a User</option>
-            {
-              users &&
-              users.map(u =>
-                <option key={u._id} value={u._id}>{u.name}</option>
-              )
-            }
-          </select>
-        </div>
-        <div className='input-holder'>
-          <label htmlFor='department'>Department</label>
-          <select
-            id='department'
-            onChange={(e) => setAssignedDepartment(e.target.value)}
-            value={assignedDepartment}
-            disabled={!departments}
-            className={`input ${emptyFields.includes('departmentId') ? 'input--error' : ''}`}
-          >
-            <option value='' disabled hidden>Select a Department</option>
-            {
-              departments &&
-              departments.map(dep =>
-                <option key={dep._id} value={dep._id}>{dep.title}</option>
-              )
-            }
-          </select>
-        </div>
+        {
+          error &&
+          <div className="error">
+            {error}
+          </div>
+        }
       </div>
-      {
-        error &&
-        <div className="error">
-          {error}
-        </div>
-      }
       <button type="submit">
         Add Task
         <svg xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="icon--sm">
