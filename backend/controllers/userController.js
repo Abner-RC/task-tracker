@@ -20,13 +20,13 @@ const getUser = async (req, res) => {
     return res.status(400).json({ error: 'ID is not valid' });
   }
 
-  const task = await Task.findById(id);
+  const user = await User.findById(id);
 
-  if (!task) {
+  if (!user) {
     return res.status(404).json({ error: 'Couldn\'t find a user with that ID' });
   }
 
-  res.status(200).json(task);
+  res.status(200).json(user);
 }
 
 // Log-in user.

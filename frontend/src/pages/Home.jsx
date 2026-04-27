@@ -1,23 +1,35 @@
 import { useEffect, useState } from 'react';
+import { useTaskContext } from '../hooks/useTaskContext'
+import { useAuthContext } from '../hooks/useAuthContext';
 import '../styles/pages.scss'
 import TaskDetails from '../components/TaskDetails';
 
 function Home() {
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const [tasks, setTasks] = useState(null);
+  const { tasks, dispatch } = useTaskContext();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch(`${apiUrl}/tasks`);
+      const response = await fetch(`${apiUrl}/tasks`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      });
       const json = await response.json();
 
       if (response.ok) {
-        setTasks(json);
+        dispatch({
+          type: 'SET_TASKS',
+          payload: json
+        });
       }
     }
-    fetchTasks();
-  }, []);
+    if (user) {
+      fetchTasks();
+    }
+  }, [dispatch, user]);
 
   return (
     <main className='page page--home'>

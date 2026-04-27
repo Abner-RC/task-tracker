@@ -28,8 +28,6 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, name, departmentId, password);
-
     await signUp(email, name, departmentId, password);
   }
 
