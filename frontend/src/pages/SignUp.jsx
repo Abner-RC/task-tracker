@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/pages.scss'
 
 function SignUp() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const [departments, setDepartments] = useState(null);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [department, setDepartment] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      const response = await fetch(`${apiUrl}/departments`);
+      const json = await response.json();
+
+      if (response.ok) {
+        setDepartments(json);
+      }
+    }
+    fetchDepartments();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +63,16 @@ function SignUp() {
               onChange={(e) => setDepartment(e.target.value)}
               value={department}
               spellCheck='false'
-            />
+              disabled={!departments}
+            >
+              <option value='' disabled hidden>Select a department</option>
+              {
+                departments &&
+                departments.map(dep =>
+                  <option key={dep._id} value={dep._id}>{dep.title}</option>
+                )
+              }
+            </select>
           </div>
           <div className='input-holder'>
             <label htmlFor='password'>Password</label>
