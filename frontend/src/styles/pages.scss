@@ -48,3 +48,10 @@ body {
     margin-left: auto;
   }
 }
+
+.error {
+  color: v.$colorError-500;
+  background-color: v.$colorError-100;
+  padding: 12px 16px;
+  border-radius: v.$borderRadius-sm;
+}

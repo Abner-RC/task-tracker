@@ -35,6 +35,7 @@
       display: flex;
       flex-direction: row;
       gap: 16px;
+      align-items: center;
 
       a {
         &.active {
@@ -45,6 +46,11 @@
         &:not(.active):hover {
           color: v.$colorPrimary;
         }
+      }
+
+      span {
+        letter-spacing: 0.05em;
+        font-weight: 500;
       }
     }
   }

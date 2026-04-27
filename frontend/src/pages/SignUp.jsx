@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import '../styles/pages.scss'
+import { useSignUp } from '../hooks/useSignUp';
 
 function SignUp() {
   const apiUrl = import.meta.env.VITE_API_URL;
 
+  const { signUp, error, isLoading } = useSignUp();
+
   const [departments, setDepartments] = useState(null);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [department, setDepartment] = useState('');
+  const [departmentId, setDepartmentId] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
@@ -25,7 +28,9 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, name, department, password);
+    console.log(email, name, departmentId, password);
+
+    await signUp(email, name, departmentId, password);
   }
 
   return (
@@ -60,8 +65,8 @@ function SignUp() {
             <select
               id='department'
               type="text"
-              onChange={(e) => setDepartment(e.target.value)}
-              value={department}
+              onChange={(e) => setDepartmentId(e.target.value)}
+              value={departmentId}
               spellCheck='false'
               disabled={!departments}
             >
@@ -85,7 +90,11 @@ function SignUp() {
             />
           </div>
         </div>
-        <button type="submit">
+        {
+          error &&
+          <div className="error">{error}</div>
+        }
+        <button type="submit" disabled={isLoading}>
           Sign Up
           <svg xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="icon--sm">
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
