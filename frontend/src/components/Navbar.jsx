@@ -2,11 +2,14 @@ import { NavLink } from "react-router-dom";
 import TaskTrackerLogo from '../assets/images/logo.png';
 import '../styles/components/Navbar.scss'
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 function Navbar() {
   const { user } = useAuthContext();
+  const { logout } = useLogout();
 
   const handleLogOut = () => {
+    logout();
   }
 
   return (
