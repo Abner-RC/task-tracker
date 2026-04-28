@@ -77,7 +77,7 @@ function CreateTaskForm({ task }) {
   return (
     <form className="form form--create" onSubmit={handleSubmit}>
       <div className='form--create__container'>
-        <h1>Add a new Task</h1>
+        <h1 className='form--create__title'>Add a new Task</h1>
         <div className='form__inputs'>
           <div className='input-holder'>
             <label htmlFor='title'>Title</label>
